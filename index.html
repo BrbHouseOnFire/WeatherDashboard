@@ -4,29 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ImpossibleQuiz</title>
-    <link rel="stylesheet" type="text/css" href="./assets/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
 
 <body class="webbackground">
     <div class="fulldoccontainer flex column jcc aic">
     <!-- Header -->
-        <header class = "header flex jcsb aic">
-            <div class = "highScores" id="highScoreButton">High Scores</div>
-            <div class = "mainheader">Impossible Quiz</div>
-            <div class = "pageTimer" id = "timerID">Time Left: 0</div>
+        <header class = "mainheader jcc aic">
+            <div class = "header">Weather Dashboard</div>
         </header>
 
-    <!-- Dynamically generated Content -->
-        <div class = "bodycontainer flex column jcsa aic" id="bodyContainer"></div>
+    <!-- Body -->
+        <div class = "bodycontainer flex jcsa aic b1" id="bodyContainer">
+            <!-- left nav -->
+            <div class = "leftnav flex column b1">
+                <!-- Searchbar -->
+                <div class="searchbar">
+                    <input class="searchbox" id="searchBox" type="text" placeholder="Search city..." />
+                    <button class="searchbutton button--start" id="searchSubmit">Go</button>
+                </div>
+                <!-- Search History -->
+                <div class = "searchhistory b1">Searh History</div>
+            </div>
+
+            <!-- display -->
+            <div class = "bodydisplay flex column b1">
+                <!-- Current Weather -->
+                <div class = "currentweathercontainer b1">CurrentWeather</div>
+                <!-- 5 day weather -->
+                <div class = "fivedayweathercontainer b1">FiveDayWeather</div>
+            </div>
+        </div>
     </div>
 </body>
 
 
 <!-- jQuery Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- Quiz Script -->
+<!-- Weather Script -->
 <script src="./assets/script.js"></script>
 </html>
