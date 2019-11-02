@@ -27,16 +27,32 @@
 .acc {
     align-content: center;
 }
+.vertcenter {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
 
 /* in order of appearance on index */
 .fulldoccontainer {
-
+	font-family: "Ubuntu", Arial, sans-serif;
+	width: 99vw;
+	min-height: 90vh;
+	border-radius: calc(1vh + 1vw);
+    background-color: rgb(107, 107, 107);
+    overflow: auto;
 }
 .mainheader {
+	padding: 1vh 1vw;
+	margin: 1vh 1vw;
+    background-color: white;
+	border-radius: calc(1vh + 1vw);
+    font-weight: 600;
+    cursor: default;
 
 }
 .header {
-	
+	font-size: calc(1em + 2vh + 1vw);
 }
 .bodycontainer {
 	width: 95vw;
@@ -274,17 +290,17 @@
 
 /* ****************************** Fancy Button Design 2 *********************************** */
 
-.qbutton.button--quiz {
+.fbuttontwo.button--fancytwo {
 	background: #37474f;
 	color: #fff;
 	-webkit-transition: background-color 0.3s, color 0.3s;
 	transition: background-color 0.3s, color 0.3s;
 }
-.button--quiz.button--inverted {
+.button--fancytwo.button--inverted {
 	background: #fff;
 	color: #37474f;
 }
-.button--quiz::before {
+.button--fancytwo::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -302,18 +318,18 @@
 	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
-.button--quiz.button--inverted::before {
+.button--fancytwo.button--inverted::before {
 	border-color: #7986cb;
 }
-.button--quiz:hover {
+.button--fancytwo:hover {
 	background-color: #fff;
 	color: #3f51b5;
 }
-.button--quiz.button--inverted:hover {
+.button--fancytwo.button--inverted:hover {
 	background-color: #37474f;
 	color: #7986cb;
 }
-.button--quiz:hover::before {
+.button--fancytwo:hover::before {
 	-webkit-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
 	opacity: 1;
@@ -321,7 +337,7 @@
 
 
 
-.qbutton {
+.fbuttontwo {
 	display: block;
 	/* margin: 1em; */
 	/* padding: 1em 2em; */
