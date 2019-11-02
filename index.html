@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ImpossibleQuiz</title>
+    <link rel="stylesheet" type="text/css" href="./assets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+</head>
+
+
+<body class="webbackground">
+    <div class="fulldoccontainer flex column jcc aic">
+    <!-- Header -->
+        <header class = "header flex jcsb aic">
+            <div class = "highScores" id="highScoreButton">High Scores</div>
+            <div class = "mainheader">Impossible Quiz</div>
+            <div class = "pageTimer" id = "timerID">Time Left: 0</div>
+        </header>
+
+    <!-- Dynamically generated Content -->
+        <div class = "bodycontainer flex column jcsa aic" id="bodyContainer"></div>
+    </div>
+</body>
+
+
+<!-- jQuery Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Quiz Script -->
+<script src="./assets/script.js"></script>
+</html>

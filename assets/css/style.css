@@ -1,0 +1,491 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+body {
+	font-family: "Ubuntu", Arial, sans-serif;
+	min-height: 80vh;
+	background-color: #101010;
+}
+
+.column {
+	flex-flow: column;
+}
+
+.head {
+	position: fixed;
+	width: 100%;
+	content: "";
+	left: 0;
+	/* SHIFTS ENTIRE HEADER including text */
+	top: -45%;
+
+	/* SHIFTS HEADER IMAGE ONLY*/
+	height: 63vh;
+
+	z-index: 1;
+	transform: skewY(-3deg);
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url("../images/eclipse2.jpg")
+		no-repeat center,
+		linear-gradient(#4e4376, #2b5876);
+	background-size: cover;
+	border-bottom: 0.2em solid #fff;
+}
+
+.navorg {
+	/* Header Text */
+	z-index: 2;
+	transform: skewY(3deg);
+	
+	/* SHIFTS HEADER TEXT ONLY */
+	padding: 50vh 0 0 1vw;
+	align-items: start;
+	justify-content: space-between;
+	/* To Do: Add padding-right as VH decreases */
+	
+}
+
+.myname {
+	/* Robert Wojciechowski text */
+	font-size: calc(1.6vh + 2.2vw);
+	font-weight: 250;
+	text-shadow: 0.044em 0.044em 0.044em rgb(0, 109, 5), 
+	-0.044em -0.044em 0.044em rgb(0, 109, 5);
+	color: #fff;
+}
+.nav {
+	/* navigation text */
+	color: #fff;
+}
+.navsizing {
+	width:calc(1rem + 12vw);
+	height:calc(1rem + 6vw);
+	font-size:calc(0.3rem + 0.75vw + 0.75vh);
+}
+
+/* **************************** NAME HOVER EFFECT **************************** */
+.myname {
+	/* add multi-browser support? */
+	-webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 20%, #000 50%, rgba(0,0,0,.6) 80%);
+	-webkit-mask-size: 200%;
+	animation: shine 1.5s infinite;
+}
+/* .myname:hover {  } */
+@-webkit-keyframes shine {
+	from {
+		/* add multi-browser support? */
+	  -webkit-mask-position: 150%;
+	}
+	to {
+		/* add multi-browser support? */
+	  -webkit-mask-position: -50%;
+	}
+}
+
+/* **************************** NAV HOVER EFFECTS **************************** */
+.navitem {
+	transition: 0.3s;
+}
+.navitem:hover {
+	/* navigation text */
+	font-size:calc(0.4rem + 1vw + 1vh);
+	transition: 0.3s;
+	/* add multi-browser support? */
+	-webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 20%, #000 50%, rgba(0,0,0,.6) 80%);
+	-webkit-mask-size: 200%;
+	animation: shine 1.5s infinite;
+}
+
+
+
+/******************   Body Image  ******************/
+.pureouttext {
+	width: 60%;
+	border-style: double;
+	border-color: black;
+	transition: 0.6s;
+}
+.pureouttext:hover {
+		
+		box-shadow: 
+		1rem 1rem 1rem rgba(228, 228, 228, 0.1),
+		-1rem -1rem 1rem rgba(228, 228, 228, 0.1),
+		1rem -1rem 1rem rgba(228, 228, 228, 0.1),
+		-1rem 1rem 1rem rgba(228, 228, 228, 0.1);
+		transition: 0.6s;
+}
+
+
+/* BORDER */
+.bd1 {
+    border:1px;
+}
+.borderplain {
+	border-style:solid;
+	border-color:gray;
+}
+
+
+/* ALIGN */
+.aic {
+    align-items: center;
+}
+.ais {
+    align-items: start;
+}
+
+/* JUSTIFY */
+.jcsb {
+    justify-content: space-between;
+}
+.jcc {
+    justify-content: center;
+}
+.jcs {
+    justify-content: start;
+}
+.jcsa {
+    justify-content: space-around;
+}
+.jcse {
+    justify-content: space-evenly;
+}
+
+
+.w1\/1 {
+	width:100%;
+}
+.h1\/1 {
+	height:100%;
+}
+.m- {
+    margin: calc(0.3vw + 0.3vh);
+}
+.m {
+    margin: 1rem;
+}
+.p {
+    padding: 1rem;
+}
+.pbplus {
+    padding-bottom: 1.66rem;
+}
+
+/* White text shortcut */
+.cwhite {
+	color:white;
+}
+
+/* flexbox shortcut classes */
+.flex {
+	display: flex;
+}
+.wrap {
+	flex-wrap: wrap;
+}
+
+/* Text body padding */
+.body-main {
+	padding: calc(8vh + 11vw) 1vw 0;
+}
+
+/* body text overwrites */
+.paragraph {
+	font-size: calc(0.5em + 0.75vw + 0.75vh);
+	font-weight: 400;
+	color: #fcfcfc;
+	text-align: center;
+}
+
+/* TEXT */
+.tdn {
+    text-decoration: none;
+}
+.taj {
+    text-align: justify;
+}
+
+
+.relative {
+	position: relative;
+}
+.bgcolorblack {
+	background-color:#101010;
+}
+
+
+
+.botmargin {
+	/* Must match footcontainer2 height */
+  	margin-bottom: 20vh;
+}
+.footcontainer2 {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/* Must match botmargin height */
+	height: 20vh;
+	/* min-height: 5rem; */
+	width:100%;
+	background: #222;
+	border-bottom: 1px solid #666;
+	justify-content:center;
+	align-items:center;
+  	z-index:-1;
+}
+
+
+/* shine */
+.shine:hover {
+	/* add multi-browser support? */
+	-webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+	-webkit-mask-size: 200%;
+	animation: shine 2s infinite;
+  }
+  @-webkit-keyframes shine {
+	from {
+		/* add multi-browser support? */
+	  -webkit-mask-position: 150%;
+	}
+	
+	to {
+		/* add multi-browser support? */
+	  -webkit-mask-position: -50%;
+	}
+  }
+
+
+/**                 Footer Color Slide                   **/
+.bar-anchor{
+	padding: 5vh 8vw; /* adjust sizing of colored bar */
+	margin: 2.5vh 1vw; /* adjust spacing around object + bar */
+	position: relative; /* attaches animated border to object */
+	display:inline-block;
+	height: 100%;
+	overflow:hidden; /* hide bar after animation */
+  /*    border:1px solid #6098FF; */
+  }
+  .bar-anchor span{
+	background:#00002E;
+	width:100%;
+	height: 100%;
+	position:relative;
+	/* multi-browser support */
+	 -moz-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	-o-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	-webkit-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  .transition-bar{
+	  position: absolute;
+	  top: 0;
+	  left: 0%;
+	  width: 0;
+	  height: 100%;
+	  background: #ffffff;
+	  z-index:-1;
+  }
+  .bar-anchor:hover span{
+	color: #ffffff!important;
+  }
+  .bar-anchor:hover .transition-bar{
+	width:150%;
+	left:125%;
+	height: 100%;
+	/* multi-browser support */
+	-moz-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	-o-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	-webkit-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  
+
+
+
+/************************  Portfolio.html Specific  ************************/
+
+/* Portfolio Item Width */
+.wp {
+	width:30%;
+}
+
+.portfolioitem {
+	position: relative;
+	border-style: double;
+	border-color: black;
+	margin: calc(0.5vw + 0.5vh);
+	width: 30%;
+	transition: 0.6s;
+}
+.portfolioitem:hover {
+	border-color: gray;
+	box-shadow: 
+	1vw 1vw 1vw rgba(228, 228, 228, 0.1),
+	-1vw -1vw 1vw rgba(228, 228, 228, 0.1),
+	1vw -1vw 1vw rgba(228, 228, 228, 0.1),
+	-1vw 1vw 1vw rgba(228, 228, 228, 0.1);
+	transition: 0.6s;
+}
+
+.portfolioitemtextcontainer {
+	position: absolute;
+	top: 75%;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	background-color: black;
+	border: double gray;
+	height: 15%;
+}
+.portfolioitemtext {
+	position: absolute;
+	font-size: calc(0.75vw + 0.75vh);
+	color:white;
+
+}
+.portfolioitemimage {
+	width: 100%;
+}
+
+
+/************************** Contact Page Specific CSS **************************/
+
+.footcontainer3 {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 20vh;
+	width:100%;
+	justify-content:center;
+	align-items:center;
+}
+
+.transition-bar2{
+	position: absolute;
+	top: 0;
+	left: 0%;
+	width: 0;
+	height: 100%;
+	background: #ffffff;
+}
+.bar-anchor:hover .transition-bar2{
+  width:150%;
+  left:125%;
+  /* multi-browser support */
+  -moz-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/************************** Contact Form **************************/
+
+.wrapper {
+	margin: 5vw auto 0;
+	width: 70%;
+	/* max-width: 90vw; */
+	display: flex;
+	justify-content: center;
+  }
+  
+  form {
+	width: 100%;
+	margin: calc(0.5vw + 0.5vh);
+  }
+  
+  form * {
+	font-size: calc(1.25vw + 1.25vh);
+	/* letter-spacing: 0.075em; */
+	font-weight: 400;
+	cursor: pointer;
+	text-decoration: none;
+  }
+  
+  form .field {
+	width: 100%;
+	position: relative;
+	margin-bottom: 2vh;
+  }
+  
+  form .field label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(90deg, #112569, #09691e);
+	width: 100%;
+	height: calc(4vh + 2vw);
+	transition: 333ms ease-in-out;
+	text-align: center;
+	padding: 1vh 0;
+  }
+  
+  form .field input[type="text"],
+  form .field textarea {
+	border: none;
+	width: 100%;
+	height: calc(4vh + 2vw);
+	margin: 0;
+	padding-left: 19.5%;
+	color: #313a3d;
+  }
+  
+  form #msg {
+	height: calc(4vh + 2vw);
+	resize: none;
+	transition: all 333ms ease-in-out;
+	padding-top: 1vh;
+  }
+  form textarea:focus#msg,
+  form textarea:not(:placeholder-shown)#msg {
+	height: calc(8vh + 3vw);
+  }
+  form input[type="text"]:focus + label,
+  form input[type="text"]:not(:placeholder-shown) + label,
+  form textarea:focus + label,
+  form textarea:not(:placeholder-shown) + label,
+  form .field:hover label {
+	width: 18%;
+  }
+  form input[type="submit"] {
+	background: linear-gradient(90deg, #112569, #09691e);
+	-webkit-appearance: none;
+	border: none;
+	position: relative;
+	padding: 1.5vh 3.3vw;
+	transition: all 0.3s ease-in-out;
+  }
+  form input[type="submit"]:hover,
+  form input[type="submit"]:focus {
+	background: #ffffff; 
+  }
+
+/* Footer adjustments for small screen sizes */
+@media screen and (max-width: 1024px) { 
+	.footcontainer2 {
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 20vh;
+		width:100%;
+		justify-content:center;
+		align-items:center;
+	}
+
+	.transition-bar{
+		position: absolute;
+		top: 0;
+		left: 0%;
+		width: 0;
+		height: 100%;
+		background: #ffffff;
+	}
+	.bar-anchor:hover .transition-bar{
+	width:150%;
+	left:125%;
+	-moz-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	-o-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	-webkit-transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	transition: all .65s cubic-bezier(0.77, 0, 0.175, 1);
+	}
+}
