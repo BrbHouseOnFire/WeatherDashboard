@@ -11,16 +11,16 @@
 
 
 <body class="webbackground flex jcc">
-    <div class="fulldoccontainer flex column aic b1">
+    <div class="fulldoccontainer flex column aic">
     <!-- Header -->
         <header class = "mainheader jcc aic">
             <div class = "header">Weather Dashboard</div>
         </header>
 
     <!-- Body -->
-        <div class = "maincontainer flex aic b1" id="maincontainer">
+        <div class = "maincontainer flex aic" id="maincontainer">
             <!-- left nav -->
-            <div class = "leftnav flex column b1">
+            <div class = "leftnav flex column">
                 <!-- Searchbar -->
                 <div class="searchcontainer">
                     <div class="searchbar flex">
@@ -42,28 +42,52 @@
             </div>
 
             <!-- display -->
-            <div class = "bodydisplay flex column b1">
+            <div class = "bodydisplay flex column jcsb b1">
                 <!-- Current Weather -->
-                <div class = "currentweathercontainer flex column b1">
-                    <div class = "bodylineone flex b1">
-                        <div class="currentcity">City</div>
-                        <div class="date">Date</div>
-                        <div class="currentweatherimg">WeatherImg</div>
+                <div class = "currentweathercontainer flex column">
+                    <div class = "bodylineone flex aic b1">
+                        <div class="currentcity" id="currentCity">City</div>
+                        <div class="date" id="cdate">Date</div>
+                        <div class="currentweatherimg">
+                            <img src="http://openweathermap.org/img/wn/10d.png">
+                        </div>
                     </div>
-                    <div class="currentweathertext">Temp</div>
-                    <div class="currentweathertext">Humidity</div>
-                    <div class="currentweathertext">Wind Speed</div>
-                    <div class="currentweathertext">UV Index (in red box?)</div>
+                    <div class="currentweathertext" id="ctemp"></div>
+                    <div class="currentweathertext" id="chumidity"></div>
+                    <div class="currentweathertext" id="cwind"></div>
+                    <div class="currentweathertext" id="cuv"></div>
                 </div>
                 <!-- 5 day weather -->
                 <div class = "fivedayweathercontainer b1">
                     <div class="fivedayweatherheader">5 day weather</div>
                     <div class="fivedayforecast flex jcsa">
-                            <div>Day</div>
-                            <div>Day</div>
-                            <div>Day</div>
-                            <div>Day</div>
-                            <div>Day</div>
+                            <div class="daycontainer" id="day1">
+                                <div class="daytext" id="day1date">Date</div>
+                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day1img">
+                                <div class="daytext" id="day1temp">temp</div>
+                            </div>
+                            <div class="daycontainer" id="day2">
+                                <div class="daytext" id="day2date">Date</div>
+                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day2img">
+                                <div class="daytext" id="day2temp">temp</div>
+                            </div>
+                            <div class="daycontainer" id="day3">
+                                <div class="daytext" id="day3date">Date</div>
+                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day3img">
+                                <div class="daytext" id="day3temp">temp</div>
+                            </div>
+                            <div class="daycontainer" id="day4">
+                                <div class="daytext" id="day4date">Date</div>
+                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day4img">
+                                <div class="daytext" id="day4temp">temp</div>
+
+                            </div>
+                            <div class="daycontainer" id="day5">
+                                <div class="daytext" id="day5date">Date</div>
+                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day5img">
+                                <div class="daytext" id="day5temp">temp</div>
+
+                            </div>
                     </div>
                 </div>
             </div>
@@ -74,6 +98,8 @@
 
 <!-- jQuery Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Moment Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <!-- Weather Script -->
 <script src="./assets/script.js"></script>
 </html>

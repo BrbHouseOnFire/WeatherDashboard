@@ -44,7 +44,7 @@ input { min-width: 0px; }
 
 
 
-/*************************************Main***************************************/
+/************************************* Main ***************************************/
 .fulldoccontainer {
 	font-family: "Ubuntu", Arial, sans-serif;
 	width: 99vw;
@@ -99,11 +99,46 @@ input { min-width: 0px; }
 }
 
 
+/******************************* Body Display **********************************/
 .bodydisplay {
 	width: 65vw;
 	min-height: 75vh;
 }
 
+/******************************* Current Weather **********************************/
+.currentweathercontainer {
+
+}
+.bodylineone {
+	margin: 2vh 2vw;
+}
+.currentcity {
+	margin: 1vh 1vw;
+}
+.date {
+	margin: 1vh 1vw;
+
+}
+.currentweatherimg {
+	margin: 1vh 1vw;
+
+}
+.currentweathertext {
+	
+	margin: 1vh 1vw;
+}
+
+
+/******************************* 5 day forecast **********************************/
+.fivedayweathercontainer {
+
+}
+.fivedayweatherheader {
+
+}
+.fivedayforecast {
+
+}
 
 
 /* Button effects */
@@ -377,8 +412,6 @@ input { min-width: 0px; }
 
 .fbuttontwo {
 	display: block;
-	/* margin: 1em; */
-	/* padding: 1em 2em; */
 	padding: 0.5vh 2vw;
 	border: none;
 	background: none;

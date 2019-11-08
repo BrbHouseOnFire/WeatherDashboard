@@ -1,41 +1,143 @@
 
 
 // This is our API key
-let APIKey = "166a433c57516f51dfab1f7edaed8413";
+const APIKey = "166a433c57516f51dfab1f7edaed8413";
+let lat = "";
+let lon = "";
 
-// Here we are building the URL we need to query the database
-let queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-  "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
+// URLS for API calls
+let queryCurrentURL = "https://api.openweathermap.org/data/2.5/weather?" +
+    "q=Chicago,us&units=imperial&appid=" + APIKey;
+let queryForecastURL = "https://api.openweathermap.org/data/2.5/forecast?" +
+    "q=Chicago,us&units=imperial&appid=" + APIKey;
+let queryUVURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=" +
+    APIKey + "&lat=" + lat + "&lon=" + lon;
+    
+// 
+$("#cdate").text(moment().format("MMM Do YYYY"));
 
-// Here we run our AJAX call to the OpenWeatherMap API
-$.ajax({
-    url: queryURL,
-    method: "GET"
-    }).then(function(response) {
 
-        // Log the queryURL
-        console.log(queryURL);
 
-        // Log the resulting object
-        console.log(response);
 
-        // Transfer content to HTML
-        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-        $(".wind").text("Wind Speed: " + response.wind.speed);
-        $(".humidity").text("Humidity: " + response.main.humidity);
-        $(".temp").text("Temperature (F) " + response.main.temp);
+let init = () => {
+    callCurrent();
+    callForecast();
 
-        // Log the data in the console as well
-        console.log("Wind Speed: " + response.wind.speed);
-        console.log("Humidity: " + response.main.humidity);
-        console.log("Temperature (F): " + response.main.temp);
+}
+
+let makeCall = () => {
+
+
+}
+
+let callCurrent = () => {
+
+    $.ajax({
+        url: queryCurrentURL,
+        method: "GET"
+        }).then(function(response) {
+            // Log the resulting object
+            console.log("Current:");
+            console.log(response);
+    
+            // Transfer content to HTML
+            $("#currentCity").html(response.name);
+            $("#cwind").text("Wind Speed: " + response.wind.speed + " MPH");
+            $("#chumidity").text("Humidity: " + response.main.humidity + "%");
+            $("#ctemp").html("Temperature: " + response.main.temp + "&deg F");
+
+            lat = response.coord.lat;
+            lon = response.coord.lon;
+            callUV(lat, lon);
+
+
+
     });
+}
+let callForecast = () => {
+
+    $.ajax({
+        url: queryForecastURL,
+        method: "GET"
+        }).then(function(response) {
+            // Log the resulting object
+            console.log("Forecast:");
+            console.log(response);
+
+            for (var i = 0; i < 40; i=i+8) {
+                let j = parseInt((i+1)/8);
+                // calculate future dates
+                let date = moment().add(j, 'days').format("MMM Do");
+                let tag = `day${j}`
+                $(`#${tag}date`).text(date);
+    
+                // find and generate image icon
+                // console.log(response.list[i].weather[0].icon);
+                let img = response.list[i].weather[0].icon;
+                $(`#${tag}img`).attr("src",`http://openweathermap.org/img/wn/${img}.png`);
+    
+                // find and generate temperature
+                $(`#${tag}temp`).html(`${response.list[i].main.temp}&deg F`);
+
+            }
+
+
+
+
+
+    });
+}
+let callUV = (latty, lonny) => {
+    queryUVURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=" +
+    APIKey + "&lat=" + latty + "&lon=" + lonny;
+    $.ajax({
+        url: queryUVURL,
+        method: "GET"
+        }).then(function(response) {
+            // Log the resulting object
+            console.log("UV:");
+            console.log(response);
+            // UV INDEX 
+            $("#cuv").text("UV Index: " + response[0].value);
+    });
+}
+
+let storeCallData = () => {
+
+}
+
+let displayCurrentWeather = () => {
+    
+}
+
+let displayFiveDayForecast = () => {
+
+}
+
+let storeSearch = () => {
+
+}
+
+let displayHistory = () => {
+
+}
+
+let clearPage = () => {
+
+}
 
 
 
 
 
 
+
+
+
+
+
+
+// 
 
 $('#searchBox').keypress(function(e) {
     if (e.which == 13) {
@@ -51,4 +153,4 @@ $('#searchSubmit').on('click', function() {
     // makeCall(userSearch);
 });
 
-
+init();
