@@ -24,6 +24,9 @@ input { min-width: 0px; }
 .jcsb {
     justify-content: space-between;
 }
+.jcs {
+	justify-content: start;
+}
 .jcsa {
     justify-content: space-around;
 }
@@ -70,13 +73,14 @@ input { min-width: 0px; }
 	min-height: 85vh;
 	padding: 3vh 2vw;
 	border-radius: calc(1vh + 1vw);
-    background-color: white;
+	background: linear-gradient(135deg, #a6b4ff, #ffffff);
+
 }
 
 /******************************** Left Nav *****************************************/
 .leftnav {
 	width: 30vw;
-	min-height: 75vh;
+	/* min-height: 45vh; */
 }
 .searchcontainer {
 	margin: 1vh 1vw;
@@ -87,22 +91,27 @@ input { min-width: 0px; }
 .searchbox {
 	justify-content: space-evenly;
 	margin: 1vh 1vw 1vh 1vw;
+	font-size: calc(0.3em + 0.6vh + 0.6vw);
 }
 .searchbutton {
-	
+	border-radius: calc(0.5vh + 0.5vw);
 }
 .searchhistory {
-
+	
 }
 .cityhistory {
-
+	width: 25vw;
+	text-align: center;
+	margin: 1vh 1vw;
+	padding: 1vh 1vw;
+	border-radius: calc(0.5vh + 0.5vw);
 }
 
 
 /******************************* Body Display **********************************/
 .bodydisplay {
 	width: 65vw;
-	min-height: 75vh;
+	/* min-height: 75vh; */
 }
 
 /******************************* Current Weather **********************************/
@@ -110,7 +119,17 @@ input { min-width: 0px; }
 
 }
 .bodylineone {
+	font-weight: 600;
 	margin: 2vh 2vw;
+	border-radius: calc(0.5vh + 0.5vw);
+	background-color: rgb(247, 247, 247);
+	box-shadow: 3px 3px gray;
+}
+.currenttextcontainer {
+	margin: 2vh 2vw;
+	border-radius: calc(0.5vh + 0.5vw);
+	background-color: rgb(247, 247, 247);
+	box-shadow: 3px 3px gray;
 }
 .currentcity {
 	margin: 1vh 1vw;
@@ -121,7 +140,12 @@ input { min-width: 0px; }
 }
 .currentweatherimg {
 	margin: 1vh 1vw;
-
+	/* background-color: rgb(113, 113, 255); */
+	border: 3px;
+	border-color: rgb(233, 233, 233);
+	border-style: solid;
+	background-color: rgb(233, 233, 233);
+	border-radius: calc(0.5vh + 0.5vw);
 }
 .currentweathertext {
 	
@@ -131,13 +155,25 @@ input { min-width: 0px; }
 
 /******************************* 5 day forecast **********************************/
 .fivedayweathercontainer {
-
+	margin: 2vh 2vw;
+	border-radius: calc(0.5vh + 0.5vw);
+	background-color: gainsboro;
 }
 .fivedayweatherheader {
-
+	background-color: white;
+	border-radius: calc(0.25vh + 0.25vw);
+	padding: 1vh 1vw;
+	margin: 2vh 2vw;
+	font-weight: 600;
 }
 .fivedayforecast {
-
+	/* overflow: auto; */
+}
+.daycontainer {
+	background-color: white;
+	padding: 1vh 1vw;
+	margin: 1vh 1vw;
+	border-radius: calc(0.25vh + 0.25vw);
 }
 
 
@@ -408,10 +444,8 @@ input { min-width: 0px; }
 	opacity: 1;
 }
 
-
-
 .fbuttontwo {
-	display: block;
+	/* display: block; */
 	padding: 0.5vh 2vw;
 	border: none;
 	background: none;

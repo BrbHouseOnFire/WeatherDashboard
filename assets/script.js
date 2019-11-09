@@ -1,9 +1,11 @@
-
+// const util = require('util');
 
 // This is our API key
 const APIKey = "166a433c57516f51dfab1f7edaed8413";
 let lat = "";
 let lon = "";
+let history = [];
+let initKey = 0;
 
 // URLS for API calls
 let queryCurrentURL = "https://api.openweathermap.org/data/2.5/weather?" +
@@ -20,17 +22,21 @@ $("#cdate").text(moment().format("MMM Do YYYY"));
 
 
 let init = () => {
-    callCurrent();
-    callForecast();
-
+    makeCall("Chicago")
 }
 
-let makeCall = () => {
-
-
+let makeCall = (city) => {
+    console.log("initKey: " + initKey);
+    storeSearch(city);
+    callCurrent(city);
+    callForecast(city);
+    displayHistory();
+    initKey++;
 }
 
-let callCurrent = () => {
+let callCurrent = (cityInput) => {
+    
+    queryCurrentURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput},us&units=imperial&appid=${APIKey}`;
 
     $.ajax({
         url: queryCurrentURL,
@@ -45,6 +51,8 @@ let callCurrent = () => {
             $("#cwind").text("Wind Speed: " + response.wind.speed + " MPH");
             $("#chumidity").text("Humidity: " + response.main.humidity + "%");
             $("#ctemp").html("Temperature: " + response.main.temp + "&deg F");
+            let img = response.weather[0].icon;
+            $("#cimg").attr("src",`http://openweathermap.org/img/wn/${img}.png`)
 
             lat = response.coord.lat;
             lon = response.coord.lon;
@@ -54,8 +62,9 @@ let callCurrent = () => {
 
     });
 }
-let callForecast = () => {
-
+let callForecast = (cityInput) => {
+    
+    queryForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput},us&units=imperial&appid=${APIKey}`;
     $.ajax({
         url: queryForecastURL,
         method: "GET"
@@ -64,10 +73,11 @@ let callForecast = () => {
             console.log("Forecast:");
             console.log(response);
 
-            for (var i = 0; i < 40; i=i+8) {
-                let j = parseInt((i+1)/8);
+            for (var i = 0; i < 40; i+=8) {
+                let j = parseInt((i+9)/8);
                 // calculate future dates
                 let date = moment().add(j, 'days').format("MMM Do");
+                
                 let tag = `day${j}`
                 $(`#${tag}date`).text(date);
     
@@ -80,11 +90,6 @@ let callForecast = () => {
                 $(`#${tag}temp`).html(`${response.list[i].main.temp}&deg F`);
 
             }
-
-
-
-
-
     });
 }
 let callUV = (latty, lonny) => {
@@ -114,11 +119,42 @@ let displayFiveDayForecast = () => {
 
 }
 
-let storeSearch = () => {
-
+let storeSearch = (cityInput) => {
+    if (initKey !== 0) {
+        let string = localStorage.getItem("searchHistory");
+        if (string === null) {
+            history.push(cityInput);
+            console.log("History: " + history);
+            localStorage.setItem("searchHistory", JSON.stringify(history));
+        }
+        else {
+            let object = JSON.parse(string);
+            console.log("city: " + cityInput);
+            console.log("un: " + object.unshift(cityInput));
+            history = object.unshift(cityInput);
+            console.log("History2: " + history);
+            localStorage.setItem("searchHistory", JSON.stringify(history));
+        }
+    }
 }
 
 let displayHistory = () => {
+    
+    let string = localStorage.getItem("searchHistory");
+    if (string === null) {
+        // $("#history").addClass("searchhistory");
+    }
+    else {
+        history = JSON.parse(string);
+        for(var i = 1; i < 6; i++) {
+            // console.log("History: " + history[i]);
+            // console.log("History: " + history);
+            if(history[i] !== "") {
+                $(`#city${i}`).text(history[i]);
+                $(`#city${i}`).removeClass("d-n");
+            }
+        }
+    }
 
 }
 
@@ -149,8 +185,9 @@ $('#searchBox').keypress(function(e) {
 $('#searchSubmit').on('click', function() {
     // save user's search value
     let userSearch = $('#searchBox').val();
-    console.log(userSearch);
-    // makeCall(userSearch);
+    $('#searchBox').val("");
+    console.log("User Search: " + userSearch);
+    makeCall(userSearch);
 });
 
 init();

@@ -18,80 +18,82 @@
         </header>
 
     <!-- Body -->
-        <div class = "maincontainer flex aic" id="maincontainer">
-            <!-- left nav -->
-            <div class = "leftnav flex column">
-                <!-- Searchbar -->
-                <div class="searchcontainer">
-                    <div class="searchbar flex">
-                        <input class="searchbox" id="searchBox" type="text" placeholder="Search for a city..." />
-                        <button class="searchbutton fbuttontwo button--fancytwo" id="searchSubmit">Go</button>
-                    </div>
-                </div>
-                <!-- Search History -->
-                <div class = "searchhistory flex column b1">
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                    <div class="cityhistory" data-city="thisCity">city</div>
-                </div>
-            </div>
-
-            <!-- display -->
-            <div class = "bodydisplay flex column jcsb b1">
-                <!-- Current Weather -->
-                <div class = "currentweathercontainer flex column">
-                    <div class = "bodylineone flex aic b1">
-                        <div class="currentcity" id="currentCity">City</div>
-                        <div class="date" id="cdate">Date</div>
-                        <div class="currentweatherimg">
-                            <img src="http://openweathermap.org/img/wn/10d.png">
+        <div class = "maincontainer flex column" id="maincontainer">
+            <div class = "uppercontainer flex aic">
+                    <!-- left nav -->
+                    <div class = "leftnav flex column">
+                        <!-- Searchbar -->
+                        <div class="searchcontainer">
+                            <div class="searchbar flex">
+                                <input class="searchbox" id="searchBox" type="text" placeholder="Search for a city..." />
+                                <button class="searchbutton fbuttontwo button--fancytwo" id="searchSubmit">Go</button>
+                            </div>
+                        </div>
+                        <!-- Search History -->
+                        <div class = "searchhistory flex column" id="history">
+                            <button class="cityhistory fbuttontwo button--fancytwo d-n" data-city="" id="city1">Go</button>
+                            <button class="cityhistory fbuttontwo button--fancytwo d-n" data-city="" id="city2">Go</button>
+                            <button class="cityhistory fbuttontwo button--fancytwo d-n" data-city="" id="city3">Go</button>
+                            <button class="cityhistory fbuttontwo button--fancytwo d-n" data-city="" id="city4">Go</button>
+                            <button class="cityhistory fbuttontwo button--fancytwo d-n" data-city="" id="city5">Go</button>
                         </div>
                     </div>
-                    <div class="currentweathertext" id="ctemp"></div>
-                    <div class="currentweathertext" id="chumidity"></div>
-                    <div class="currentweathertext" id="cwind"></div>
-                    <div class="currentweathertext" id="cuv"></div>
-                </div>
+        
+                    <!-- display -->
+                    <div class = "bodydisplay flex column jcsb">
+                        <!-- Current Weather -->
+                        <div class = "currentweathercontainer flex column">
+                            <div class = "bodylineone flex aic jcc">
+                                <div class="currentcity" id="currentCity"></div>
+                                <div class="date" id="cdate"></div>
+                                <div class="currentweatherimg">
+                                    <img src="" id="cimg">
+                                </div>
+                            </div>
+                            <div class="currenttextcontainer">
+                                <div class="currentweathertext" id="ctemp"></div>
+                                <div class="currentweathertext" id="chumidity"></div>
+                                <div class="currentweathertext" id="cwind"></div>
+                                <div class="currentweathertext" id="cuv"></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
                 <!-- 5 day weather -->
-                <div class = "fivedayweathercontainer b1">
-                    <div class="fivedayweatherheader">5 day weather</div>
+                <div class = "fivedayweathercontainer flex column b1">
+                    <div class="fivedayweatherheader flex jcc">Five Day Forecast</div>
                     <div class="fivedayforecast flex jcsa">
                             <div class="daycontainer" id="day1">
-                                <div class="daytext" id="day1date">Date</div>
-                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day1img">
-                                <div class="daytext" id="day1temp">temp</div>
+                                <div class="daytext" id="day1date"></div>
+                                <img class="dayimg" src="" id="day1img">
+                                <div class="daytext" id="day1temp"></div>
                             </div>
                             <div class="daycontainer" id="day2">
-                                <div class="daytext" id="day2date">Date</div>
-                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day2img">
-                                <div class="daytext" id="day2temp">temp</div>
+                                <div class="daytext" id="day2date"></div>
+                                <img class="dayimg" src="" id="day2img">
+                                <div class="daytext" id="day2temp"></div>
                             </div>
                             <div class="daycontainer" id="day3">
-                                <div class="daytext" id="day3date">Date</div>
-                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day3img">
-                                <div class="daytext" id="day3temp">temp</div>
+                                <div class="daytext" id="day3date"></div>
+                                <img class="dayimg" src="" id="day3img">
+                                <div class="daytext" id="day3temp"></div>
                             </div>
                             <div class="daycontainer" id="day4">
-                                <div class="daytext" id="day4date">Date</div>
-                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day4img">
-                                <div class="daytext" id="day4temp">temp</div>
-
+                                <div class="daytext" id="day4date"></div>
+                                <img class="dayimg" src="" id="day4img">
+                                <div class="daytext" id="day4temp"></div>
                             </div>
                             <div class="daycontainer" id="day5">
-                                <div class="daytext" id="day5date">Date</div>
-                                <img class="dayimg" src="http://openweathermap.org/img/wn/10d.png" id="day5img">
-                                <div class="daytext" id="day5temp">temp</div>
+                                <div class="daytext" id="day5date"></div>
+                                <img class="dayimg" src="" id="day5img">
+                                <div class="daytext" id="day5temp"></div>
 
                             </div>
                     </div>
                 </div>
-            </div>
         </div>
+        
     </div>
 </body>
 
