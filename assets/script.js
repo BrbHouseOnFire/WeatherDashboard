@@ -26,7 +26,6 @@ let init = () => {
 }
 
 let makeCall = (city) => {
-    console.log("initKey: " + initKey);
     storeSearch(city);
     callCurrent(city);
     callForecast(city);
@@ -124,15 +123,13 @@ let storeSearch = (cityInput) => {
         let string = localStorage.getItem("searchHistory");
         if (string === null) {
             history.push(cityInput);
-            console.log("History: " + history);
             localStorage.setItem("searchHistory", JSON.stringify(history));
         }
         else {
+            console.log("string: " + string);
             let object = JSON.parse(string);
-            console.log("city: " + cityInput);
-            console.log("un: " + object.unshift(cityInput));
-            history = object.unshift(cityInput);
-            console.log("History2: " + history);
+            object.unshift(cityInput);
+            history = object;
             localStorage.setItem("searchHistory", JSON.stringify(history));
         }
     }
@@ -142,15 +139,15 @@ let displayHistory = () => {
     
     let string = localStorage.getItem("searchHistory");
     if (string === null) {
-        // $("#history").addClass("searchhistory");
+        // do nothing
     }
     else {
         history = JSON.parse(string);
         for(var i = 1; i < 6; i++) {
-            // console.log("History: " + history[i]);
-            // console.log("History: " + history);
-            if(history[i] !== "") {
-                $(`#city${i}`).text(history[i]);
+            j=i-1;
+            if(history[j] !== "" && history[j] !== null && history[j] !== undefined) {
+                console.log(history[j]);
+                $(`#city${i}`).text(history[j]);
                 $(`#city${i}`).removeClass("d-n");
             }
         }
@@ -173,7 +170,6 @@ let clearPage = () => {
 
 
 
-// 
 
 $('#searchBox').keypress(function(e) {
     if (e.which == 13) {
@@ -185,9 +181,22 @@ $('#searchBox').keypress(function(e) {
 $('#searchSubmit').on('click', function() {
     // save user's search value
     let userSearch = $('#searchBox').val();
+    // clear the searchbox
     $('#searchBox').val("");
-    console.log("User Search: " + userSearch);
+    // console.log("User Search: " + userSearch);
     makeCall(userSearch);
 });
 
+$('.cityhistory').on('click', function() {
+    // save user's search value
+    let userSearch = $(this).text();
+    // clear the searchbox
+    $('#searchBox').val("");
+    // console.log("User Search: " + userSearch);
+    // don't create a new history button when clicking a history item
+    initKey = 0;
+    makeCall(userSearch);
+});
+
+// Run intial page setup
 init();
