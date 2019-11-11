@@ -80,7 +80,6 @@ input { min-width: 0px; }
 /******************************** Left Nav *****************************************/
 .leftnav {
 	width: 30vw;
-	/* min-height: 45vh; */
 }
 .searchcontainer {
 	margin: 1vh 1vw;
@@ -167,7 +166,7 @@ input { min-width: 0px; }
 	font-weight: 600;
 }
 .fivedayforecast {
-	/* overflow: auto; */
+	
 }
 .daycontainer {
 	background-color: white;
@@ -178,8 +177,70 @@ input { min-width: 0px; }
 
 
 /* Button effects */
+
+/* ****************************** Fancy Button Design 2 *********************************** */
+
+.fbuttontwo.button--fancytwo {
+	background: #37474f;
+	color: #fff;
+	-webkit-transition: background-color 0.3s, color 0.3s;
+	transition: background-color 0.3s, color 0.3s;
+}
+.button--fancytwo.button--inverted {
+	background: #fff;
+	color: #37474f;
+}
+.button--fancytwo::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #3f51b5;
+	z-index: -1;
+	border-radius: inherit;
+	opacity: 0;
+	-webkit-transform: scale3d(0.6, 0.6, 1);
+	transform: scale3d(0.6, 0.6, 1);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--fancytwo.button--inverted::before {
+	border-color: #7986cb;
+}
+.button--fancytwo:hover {
+	background-color: #fff;
+	color: #3f51b5;
+}
+.button--fancytwo.button--inverted:hover {
+	background-color: #37474f;
+	color: #7986cb;
+}
+.button--fancytwo:hover::before {
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);
+	opacity: 1;
+}
+
+.fbuttontwo {
+	padding: 0.5vh 2vw;
+	border: none;
+	background: none;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
 /* ****************************** FANCY BUTTON DESIGN 1 *********************************** */
-.button--start {
+/* .button--start {
     padding: 0 calc(1vw + 1vh);
 	overflow: hidden;
 	background: #afafaf;
@@ -197,7 +258,6 @@ input { min-width: 0px; }
 }
 .button--start > span {
 	display: inline-block;
-    /* padding: 1em 0; */
     padding: calc(0.5vw + 0.5vh) 0;
 }
 .button--start:hover {
@@ -395,66 +455,4 @@ input { min-width: 0px; }
 .button--start:hover > span:nth-child(17) {
 	-webkit-animation-delay: 0.85s;
 	animation-delay: 0.85s;
-}  
-
-/* ****************************** Fancy Button Design 2 *********************************** */
-
-.fbuttontwo.button--fancytwo {
-	background: #37474f;
-	color: #fff;
-	-webkit-transition: background-color 0.3s, color 0.3s;
-	transition: background-color 0.3s, color 0.3s;
-}
-.button--fancytwo.button--inverted {
-	background: #fff;
-	color: #37474f;
-}
-.button--fancytwo::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border: 2px solid #3f51b5;
-	z-index: -1;
-	border-radius: inherit;
-	opacity: 0;
-	-webkit-transform: scale3d(0.6, 0.6, 1);
-	transform: scale3d(0.6, 0.6, 1);
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	transition: transform 0.3s, opacity 0.3s;
-	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-}
-.button--fancytwo.button--inverted::before {
-	border-color: #7986cb;
-}
-.button--fancytwo:hover {
-	background-color: #fff;
-	color: #3f51b5;
-}
-.button--fancytwo.button--inverted:hover {
-	background-color: #37474f;
-	color: #7986cb;
-}
-.button--fancytwo:hover::before {
-	-webkit-transform: scale3d(1, 1, 1);
-	transform: scale3d(1, 1, 1);
-	opacity: 1;
-}
-
-.fbuttontwo {
-	/* display: block; */
-	padding: 0.5vh 2vw;
-	border: none;
-	background: none;
-	position: relative;
-	z-index: 1;
-	-webkit-backface-visibility: hidden;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-
-
-
+}   */
