@@ -4,6 +4,7 @@ let lat = "";
 let lon = "";
 let history = [];
 let initKey = 0;
+let apiSuccess = true;
 
 // URLS for API calls
 let queryCurrentURL = "https://api.openweathermap.org/data/2.5/weather?" +
@@ -21,9 +22,9 @@ let init = () => {
 }
 
 let makeCall = (city) => {
-    storeSearch(city);
     callCurrent(city);
     callForecast(city);
+    storeSearch(city);
     displayHistory();
     initKey++;
 }
