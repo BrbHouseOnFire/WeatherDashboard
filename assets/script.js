@@ -87,7 +87,7 @@ let callForecast = (cityInput) => {
 }
 let callUV = (latty, lonny) => {
     // update API url with key, longitude, and latitude
-    queryUVURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=" +
+    queryUVURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?appid=" +
     APIKey + "&lat=" + latty + "&lon=" + lonny;
     // make the API call
     $.ajax({
